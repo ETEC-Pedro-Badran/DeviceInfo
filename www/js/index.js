@@ -26,4 +26,16 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+
+    
+
+    function eventoStatusBateria(status) {
+        console.log("Nível: " + status.level + "  está conectado: " + status.isPlugged);
+        document.querySelector("#batlevel").innerText  = " "+ status.level + "%";
+    }
+    window.addEventListener("batterystatus", eventoStatusBateria, false);
+
+    
+
 }
